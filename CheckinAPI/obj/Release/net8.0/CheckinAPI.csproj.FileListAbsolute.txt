@@ -243,3 +243,4 @@ C:\Ajisai\Workspace\Development\C#\CheckinAPI\CheckinAPI\CheckinAPI\bin\Release\
 C:\Ajisai\Workspace\Development\C#\CheckinAPI\CheckinAPI\CheckinAPI\bin\Release\net8.0\runtimes\win-x64\native\k5sprt64.dll
 C:\Ajisai\Workspace\Development\C#\CheckinAPI\CheckinAPI\CheckinAPI\bin\Release\net8.0\runtimes\win-x64\native\krb5_64.dll
 C:\Ajisai\Workspace\Development\C#\CheckinAPI\CheckinAPI\CheckinAPI\bin\Release\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Ajisai\Workspace\Development\C#\CheckinAPI\CheckinAPI\CheckinAPI\obj\Release\net8.0\CheckinAPI.sourcelink.json
