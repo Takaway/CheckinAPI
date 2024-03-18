@@ -2,6 +2,8 @@
 using CheckinAPI.Models;
 using NuGet.Versioning;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore.Storage.Json;
 namespace CheckinAPI.Controllers
 {
 	[Route("api/[controller]")]
@@ -29,9 +31,16 @@ namespace CheckinAPI.Controllers
 		}
 		private bool withinRange(string date, int offset)
 		{
-			DateTime t_cur = DateTime.Parse(date);
-			DateTime t_target = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 5, 0, 0) - new TimeSpan(24 * offset, 0, 0);
-			if (t_cur >= t_target && t_cur <= t_target + new TimeSpan(24, 0, 0))
+			DateTime t_current = DateTime.Now.AddDays(-offset);
+			DateTime t_target = DateTime.Parse(date);
+			(int, int, int) t1, t2;
+			if (t_current.Hour < 5) // now is yesterday
+				t_current = t_current.AddDays(-1);
+			if (t_target.Hour < 5) // tar is yesterday
+				t_target = t_target.AddDays(-1);
+			t1 = (t_current.Year, t_current.Month, t_current.Day);
+			t2 = (t_target.Year, t_target.Month, t_target.Day);
+			if (t1 == t2)
 				return true;
 			return false;
 		}
