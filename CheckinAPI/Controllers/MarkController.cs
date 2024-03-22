@@ -40,9 +40,10 @@ namespace CheckinAPI.Controllers
         private bool isMarkedToday(string qq)
         {
             (int, int, int) t1, t2;
-            DateTime t_current = DateTime.Now, t_target;
+            DateTime t_current, t_target;
             foreach(var elem in _context.Marklog.Where(e => e.qq == qq).ToList())
             {
+                t_current = DateTime.Now;
                 t_target = DateTime.Parse(elem.date);
                 if (t_current.Hour < 5) t_current = t_current.AddDays(-1);
                 if (t_target.Hour < 5) t_target = t_target.AddDays(-1);

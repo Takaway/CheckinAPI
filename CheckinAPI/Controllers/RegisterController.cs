@@ -40,7 +40,7 @@ namespace CheckinAPI.Controllers
 		{
 			if (!RegisterExists(qq))
 				return NotFound();
-            Models.Register register = _context.Register.Single(e => e.qq == qq);
+            Register register = _context.Register.Single(e => e.qq == qq);
             register.name = name;
 			_context.Entry(register).State = EntityState.Modified;
 			await _context.SaveChangesAsync();
